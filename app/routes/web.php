@@ -15,12 +15,8 @@ use App\Http\Controllers\testValue;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/test', function () {
-    return view('test');
+    return view('index');
 });
 
 
-Route::get('/test', [testValue::class, 'test']);
+// Route::get('/test', [testValue::class, 'test']);
