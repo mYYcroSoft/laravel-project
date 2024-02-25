@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\testValue;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,14 @@ use App\Http\Controllers\testValue;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('master');
 });
 
-
+Route::get('/welcome', function() {
+    return view('welcome');
+});
 // Route::get('/test', [testValue::class, 'test']);
+
+Route::resource('blog', PostController::class);
+Route::get('/blog/{id}/show', [PostController::class, 'show']);
+
