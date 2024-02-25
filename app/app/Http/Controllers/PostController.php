@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Broadcast;
 class PostController extends Controller
 {
     /**
@@ -37,8 +37,12 @@ class PostController extends Controller
     public function show(string $id)
     {
         //
-        return view('blogs.show');
+      
+        return view('blogs.show', ["id"=> $id]);
+      
     }
+
+ 
 
     /**
      * Show the form for editing the specified resource.
