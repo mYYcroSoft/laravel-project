@@ -26,6 +26,9 @@ Route::get('/dashboard', function () {
 Route::get('/users', [GetUsersFromDatabase::class, 'index'], function () {
     return view('user_list');
 })->middleware(['auth', 'verified', 'role:admin'])->name('users');
+Route::get('/users2', [GetUsersFromDatabase::class, 'index'], function () {
+    return view('user_list');
+})->middleware(['auth', 'verified', 'role:admin'])->name('users');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -1,16 +1,29 @@
 <x-app-layout>
-<div class="row">
-<div class="col-sm-6 mb-3 mb-sm-0">
-@foreach ($users as $user)
-<div class="card w-auto bg-white">
-  <div class="card-bod  y">
-    <h5 class="card-title">{{}}</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Button</a>
-  </div>
+  <div class="container ">
+
+    <div class="row row-cols-auto mt-5">
+
+      @foreach ($users as $user)
+        <div class="card p-4 w-25 m-3" style="background-color: #162546; color: #fff">
+      
+          <div class="row-cols">
+            <span class="card-title">{{$user->name}}</span>
+            <span class="card-title">({{$user->id}})</span>
+          </div>
+            <p class="card-text">{{$user->email}}</p>
+            <div class="row row-cols-auto mt-2">
+              <x-nav-link :href="route('users2')"> <button class="btn btn-primary ml-3"">Edit</button> </x-nav-link>
+              <button class="btn btn-danger ml-3">Delete</button>
+            </div>
+          
+        </div>  
+      
+
+      
+          @endforeach
+  
 </div>
 
-    @endforeach
-    </div>
-</div>
+  </div>
+
 </x-app-layout>
