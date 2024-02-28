@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GetUsersFromDatabase;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,9 +23,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/post', function () {
-    return view('post');
-})->middleware(['auth', 'verified'])->name('post');
+Route::get('/users', [GetUsersFromDatabase::class, 'index'], function () {
+    return view('user_list');
+})->middleware(['auth', 'verified', 'role:admin'])->name('users');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

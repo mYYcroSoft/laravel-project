@@ -14,10 +14,10 @@ class AdminSeeder extends Seeder
     {
         $user = User::create([
             'name' => 'admin',
-            'email' => 'admin',
+            'email' => 'admin@admin',
             'email_verified_at' => now(),
             'password' => 'admin123456',
         ]);
-        $user->assignRole('writer', 'admin');
+        $user->assignRole('guest');
     }
 }
