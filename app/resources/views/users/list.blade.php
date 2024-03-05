@@ -17,11 +17,18 @@
             </div>
           
         </div>  
-      
-
-      
           @endforeach
   
+      <div class="card p-4 w-25 m-3" style="background-color: #162546; color: #fff">
+      
+          <div class="row-cols">
+            <span class="card-title">Nový uživatel</span>
+          </div>
+            <div class="row row-cols-auto mt-2">
+              <x-nav-link :href="route('createuser')"> <button class="btn btn-primary ml-3"">Přidat</button> </x-nav-link>
+            </div>
+          
+      </div>  
 </div>
 
   </div>

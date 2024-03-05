@@ -26,7 +26,9 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
     Route::get('/users', [UserController::class, 'getAllUsers'])->name('users');
     Route::get('/users/{id}/edit', [UserController::class, 'GetUserById'])->name('edituser');
+    Route::get('/users/create', [UserController::class, 'CreateUser'])->name('createuser');
     Route::put('/users/{id}/update', [UserController::class, 'UpdateUserData'])->name('updateuser');
+    Route::put('/users/add', [UserController::class, 'AddNewUser'])->name('addnewuser');
     Route::delete('/users/{id}/delete', [UserController::class, 'DeleteUser'])->name('deleteuser');
 });
 

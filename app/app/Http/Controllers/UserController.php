@@ -29,11 +29,18 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $role = Role::findById($request->role);
+        $role = Role::findByName($request->role);
         $user->syncRoles([$role]);
 
         $user->save();
 
         return redirect()->route('users');
+    }
+
+    public function CreateUser()
+    {
+        $roles = Role::all();
+
+        return view('users.create', compact('roles'));
     }
 }
